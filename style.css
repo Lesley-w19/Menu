@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.menu{
+    min-height: 100vh;
+    background: rgba(95, 158, 160, 0.288);
+}
+.title{
+    text-align: center;
+    padding: .5rem;
+    border: .2rem solid transparent;
+}
+.title h3{
+    margin: 1rem auto .1rem auto;
+    font-size: 2.1rem;
+    font-family: forte;
+    text-transform: capitalize;
+}
+.underline{
+    width: 4.5rem;
+    height: .2rem;
+    background-color:rgba(220, 20, 60, 0.924);
+    margin: .05rem auto;
+}
+.btn-wrapper{
+    margin: .5rem auto 1rem auto;
+    text-align: center;
+    padding: .2rem .3rem;
+}
+.filter-btn{
+    margin: .3rem;
+    padding: .3rem .5rem;
+    background: transparent;
+    outline: none;
+    border: .1rem solid rgb(199, 58, 86);
+    font-size: .95rem;
+    text-transform: capitalize;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: .02rem;
+    color:rgba(220, 20, 60, 0.924);
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.filter-btn:hover {
+    background:  rgb(199, 58, 86);
+    color: white;
+}
+.active{
+    background:  rgb(199, 58, 86);
+    color: white;
+}
+.menu-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    place-items: center;
+   margin: .1rem 8%;
+   text-align: center;
+
+}
+.menu-item{
+    margin: .5rem auto;
+    padding: .3rem .1rem;
+    /* border: .1rem solid #222; */
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.menu-item img{
+    width:  200px;
+    height: 120px;
+    border: .14rem solid rgba(220, 20, 60, 0.884);
+    border-radius: .5rem;
+    object-fit: fill;
+}
+.menu-info{
+    margin: .2rem .3rem;
+    padding: .1rem;
+}
+.menu-info header{
+    display: flex;
+    justify-content: space-between;
+    margin: .2rem auto .4rem auto;
+    border-bottom: .1rem solid rgba(53, 3, 53, 0.767);
+}
+.menu-info .heading{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-family: monotype corsiva;
+    letter-spacing: .1rem;
+}
+.menu-info .price{
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.menu-text{
+    margin: auto .5rem;
+    padding: 1rem auto;
+    font-size: 1rem;
+    letter-spacing: .02rem;
+}
+
+
+@media screen and (max-width:1100px){
+    .menu-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        text-align: center;
+        margin: .1rem ;
+    }
+    .menu-item{
+       display: inline-block;
+       padding: 1rem;
+    }
+    .menu-item img{
+        width: 350px;
+        height: 200px;
+        /* margin: .2rem auto;
+        align-items: center; */
+    }
+    .menu-info{
+        padding: .2rem .5rem;
+        margin: .1rem 2%;
+    }
+    .menu-info header{
+        margin: .2rem .5rem;
+    }
+    .menu-text{
+        margin: .1rem .7rem;
+    }
+}
+
+
+@media screen and (max-width:800px){
+    .menu-wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+        text-align: center;
+        margin: .1rem 2%;
+    }
+    .menu-item{
+       display: inline-block;
+       padding: 1rem;
+    }
+    .menu-item img{
+        width: 300px;
+        height: 150px;
+        /* height: 200px; */
+        /* margin: .2rem auto;
+        align-items: center; */
+    }
+    .menu-info{
+        margin: .1rem 15%;
+    }
+    .menu-info header{
+        margin: .2rem .5rem;
+    }
+    .menu-text{
+        margin: .1rem .7rem;
+    }
+}

@@ -1,0 +1,133 @@
+const menu = [
+    {
+      id: 1,
+      title: "buttermilk pancakes",
+      category: "breakfast",
+      price: 15.99,
+      img: "./images/item-1.jpeg",
+      description: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
+    },
+    {
+      id: 2,
+      title: "diner double",
+      category: "lunch",
+      price: 13.99,
+      img: "./images/item-2.jpeg",
+      description: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
+    },
+     {
+        id: 3,
+        title: "godzilla milkshake",
+        category: "shakes",
+        price: 6.99,
+        img: "./images/item-3.jpeg",
+        description: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
+      },
+    {
+      id: 4,
+      title: "country delight",
+      category: "breakfast",
+      price: 20.99,
+      img: "./images/item-4.jpeg",
+      description: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
+    },
+    {
+      id: 5,
+      title: "egg attack",
+      category: "lunch",
+      price: 22.99,
+      img: "./images/item-5.jpeg",
+      description: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
+    },
+    {
+      id: 6,
+      title: "oreo dream",
+      category: "shakes",
+      price: 18.99,
+      img: "./images/item-6.jpeg",
+      description: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
+    },
+    {
+      id: 7,
+      title: "bacon overflow",
+      category: "breakfast",
+      price: 8.99,
+      img: "./images/item-7.jpeg",
+      description: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
+    },
+    {
+      id: 8,
+      title: "american classic",
+      category: "lunch",
+      price: 12.99,
+      img: "./images/item-8.jpeg",
+      description: `on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  `,
+    },
+    {
+      id: 9,
+      title: "quarantine buddy",
+      category: "shakes",
+      price: 16.99,
+      img: "./images/item-9.jpeg",
+      description: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    },
+   
+  ];
+
+
+  const menuWrapper = document.querySelector(".menu-wrapper");
+//   console.log(menuWrapper);
+const filterBtns = document.querySelectorAll(".filter-btn");
+
+
+// load initial page content be like
+  window.addEventListener('DOMContentLoaded', ()=>{
+          displayMenuItems(menu);
+  });
+
+  // enable the filter-btns
+  filterBtns.forEach((btn)=>{
+  btn.addEventListener('click', (e)=>{
+    // console.log(e.currentTarget.dataset.name);
+
+    const category = e.currentTarget.dataset.name;  //--> gives access to the btn with the specific data-name
+  // filtering through the menu array for the given dataset
+    const menuCategory = menu.filter((menuItem)=>{
+            //  console.log(menuItem.category);   // access all the categories
+            if (menuItem.category === category){
+              return  menuItem;
+            }
+    })
+    // console.log(menuCategory);
+
+    // access only the categories in the menu array in order to display all / the specifics
+    if (category === 'all'){
+        displayMenuItems(menu);
+    }
+    else{
+      displayMenuItems(menuCategory);
+    }
+  });
+  });
+
+//   write all page content into a function for easier reference and access
+function displayMenuItems(menuContent){
+    let displayContent = menuContent.map((item)=>{
+        //  console.log(item);
+        return ` <article class="menu-item">
+        <img src=${item.img} alt="${item.title}" class="photo">
+        <div class="menu-info">
+            <header>
+               <h4 class="heading">${item.title}</h4>
+               <h3 class="price">$${item.price}</h3>
+            </header>
+          <p class="menu-text">
+             ${item.description}
+          </p>
+        </div>
+    </article>
+    `;
+  });
+ displayContent = displayContent.join(" ");
+ menuWrapper.innerHTML = displayContent;
+}
